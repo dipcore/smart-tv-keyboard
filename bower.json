@@ -1,0 +1,12 @@
+{
+  "name": "smartTvKeyboard",
+  "version": "0.0.0",
+  "main": "dist/smartTvKeyboard.min.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,63 @@
+/*
+smart-tv-keyboard styles
+Denys Petrovnin <dipcore@gmail.com>
+Date: 22-Dec-2013 12:56:19 PM
+*/
+.smart-tv-keyboard {
+    width: 550px;
+    background-color: black;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+/* Title */
+.smart-tv-keyboard .title {
+    color: #CCC;
+    margin: 5px;
+}
+/* Input Box */
+.smart-tv-keyboard .input-box {
+    margin-bottom: 5px;
+    background-color: #EEE;
+    font-size: 20px;
+}
+/* Buttons */
+.smart-tv-keyboard .btn {
+    margin: 1px;
+    width: 34px;
+    height: 34px;
+    color: #DDD;
+    font-weight: bold;
+    border-color: #2B2B2B;
+}
+.smart-tv-keyboard .btn.x-long {
+    width: 213px;
+}
+.smart-tv-keyboard .btn.long {
+    width: 70px;
+}
+.smart-tv-keyboard .btn.normal {
+    width: 34px;
+}
+.smart-tv-keyboard .btn.disabled {
+    background: #333;
+    border-color: #444;
+}
+.smart-tv-keyboard .btn.selected {
+    background: #a7cfdf !important;
+    color: #444 !important;
+}
+.smart-tv-keyboard .btn.grey{
+    background: #7d7e7d;
+}
+.smart-tv-keyboard .btn.red{
+    background: #910323;
+}
+.smart-tv-keyboard .btn.blue{
+    background: #606c88;
+}
+
+.smart-tv-keyboard .btn.green{
+    background: #627d4d;
+}
+
