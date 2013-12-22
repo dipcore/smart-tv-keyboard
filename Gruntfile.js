@@ -49,7 +49,7 @@ module.exports = function(grunt) {
 	main: {
 	    files: [
         	{src: ['src/css/main.css'], dest: 'dist/css/smartTvKeyboard.css'},
-        	{expand: true, cwd: 'src/', src: ['languages/**'], dest: 'dist/'}
+        	{expand: true, cwd: 'src/', src: ['langs/**'], dest: 'dist/'}
 	    ]
 	}
     },

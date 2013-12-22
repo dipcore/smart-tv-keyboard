@@ -4,7 +4,7 @@
  * Date: 22-Dec-2013 12:52:28 PM
  */
 
-smartTVKb.addLanguage('rus',
+smartTvKeyboard.addLanguage('rus',
         {
             unshift: {
                 '0': [
