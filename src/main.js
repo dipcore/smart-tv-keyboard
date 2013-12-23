@@ -86,9 +86,10 @@ var smartTvKeyboard = {
     titleElement: null, inputElement: null, keyboardElement: null,
     cursorPosition: 0,
     config: {
-        id: 'keyboard',
+        id: null, // If id is not set show popup else insert keyboard in element (innerHtml)
         input: 'text', // text, password or textarea
         title: null, // Title
+        destroyOnExit: true,
         navKeys: {
             LEFT: 37,
             UP: 38,
@@ -289,10 +290,6 @@ var smartTvKeyboard = {
         this.inputElement.className = "form-control input-box";
         this.keyboardElement.appendChild(this.inputElement);
         this.inputElement.focus();
-        // Keep focus in it
-        this.inputElement.onblur = function() {
-            this.focus();
-        };
     },
     setCursorPosition: function(pos) {
         var el = this.inputElement;
@@ -334,77 +331,101 @@ var smartTvKeyboard = {
         this.renderInputBox();
         this.renderGrid();
     },
+    /*
+     * Callbacks
+     */
+    enterCallback: function(value) {
+        if (this.config.onEnter && typeof this.config.onEnter === 'function') {
+            this.config.onEnter(value);
+        }
+    },
+    cancelCallback: function(value) {
+        if (this.config.onCancel && typeof this.config.onCancel === 'function') {
+            this.config.onCancel(value);
+        }
+    },
+    /*
+     * Nav keys
+     */
+    onKeyUp: function(evt) {
+        var that = smartTvKeyboard;
+        evt = evt || window.event;
+        var KEYS = that.config.navKeys;
+        var xy;
+        switch (evt.keyCode) {
+            case KEYS.UP:
+                xy = that.getXY(that.x, that.y, 'UP');
+                that.select(xy[0], xy[1]);
+                break;
+            case KEYS.DOWN:
+                xy = that.getXY(that.x, that.y, 'DOWN');
+                that.select(xy[0], xy[1]);
+                break;
+            case KEYS.LEFT:
+                xy = that.getXY(that.x, that.y, 'LEFT');
+                that.select(xy[0], xy[1]);
+                break;
+            case KEYS.RIGHT:
+                xy = that.getXY(that.x, that.y, 'RIGHT');
+                that.select(xy[0], xy[1]);
+                break;
+            case KEYS.ENTER:
+                var value = that.getButtonValue(that.x, that.y);
+                switch (value) {
+                    case '&&cursorMoveLeft':
+                        that.cursorMove(-1);
+                        break;
+                    case '&&cursorMoveRight':
+                        that.cursorMove(1);
+                        break;
+                    case '&&clear':
+                        that.inputElement.value = '';
+                        that.cursorPosition = 0;
+                        break;
+                    case '&&back':
+                        that.cursorMove(-1);
+                        that.inputElement.value = that.inputElement.value.slice(0, that.cursorPosition) + that.inputElement.value.slice(that.cursorPosition + 1);
+                        that.setCursorPosition(that.cursorPosition);
+                        break;
+                    case '&&switchMode':
+                        that.toggleMode();
+                        that.renderGrid();
+                        break;
+                    case '&&switchLanguage':
+                        that.toggleLanguage();
+                        that.renderGrid();
+                        break;
+                    case '&&enter':
+                        that.enterCallback(that.inputElement.value);
+                        that.destroy();
+                        break;
+                    case '&&cancel':
+                        that.cancelCallback(that.inputElement.value);
+                        that.destroy();
+                        break;
+                    default:
+                        that.cursorPosition++;
+                        that.inputElement.value = that.inputElement.value.slice(0, that.cursorPosition) + value + that.inputElement.value.slice(that.cursorPosition);
+                        that.setCursorPosition(that.cursorPosition);
+                        break;
+                }
+                break;
+        }
+        evt.preventDefault();
+        return false;
+    },
+    onBlur: function() {
+        this.focus();
+    },
     bindNavKeys: function() {
-        var that = this;
-        // Remove this
-        this.inputElement.onkeydown = function(evt) {
-            evt.preventDefault();
-            return false;
-        };
-        this.inputElement.onkeyup = function(evt) {
-            evt = evt || window.event;
-            var KEYS = that.config.navKeys;
-            var xy;
-            switch (evt.keyCode) {
-                case KEYS.UP:
-                    xy = that.getXY(that.x, that.y, 'UP');
-                    that.select(xy[0], xy[1]);
-                    break;
-                case KEYS.DOWN:
-                    xy = that.getXY(that.x, that.y, 'DOWN');
-                    that.select(xy[0], xy[1]);
-                    break;
-                case KEYS.LEFT:
-                    xy = that.getXY(that.x, that.y, 'LEFT');
-                    that.select(xy[0], xy[1]);
-                    break;
-                case KEYS.RIGHT:
-                    xy = that.getXY(that.x, that.y, 'RIGHT');
-                    that.select(xy[0], xy[1]);
-                    break;
-                case KEYS.ENTER:
-                    var value = that.getButtonValue(that.x, that.y);
-                    switch (value) {
-                        case '&&cursorMoveLeft':
-                            that.cursorMove(-1);
-                            break;
-                        case '&&cursorMoveRight':
-                            that.cursorMove(1);
-                            break;
-                        case '&&clear':
-                            that.inputElement.value = '';
-                            that.cursorPosition = 0;
-                            break;
-                        case '&&back':
-                            that.cursorMove(-1);
-                            that.inputElement.value = that.inputElement.value.slice(0, that.cursorPosition) + that.inputElement.value.slice(that.cursorPosition + 1);
-                            that.setCursorPosition(that.cursorPosition);
-                            break;
-                        case '&&switchMode':
-                            that.toggleMode();
-                            that.renderGrid();
-                            break;
-                        case '&&switchLanguage':
-                            that.enterCallback(that.inputElement.value);
-                            break;
-                        case '&&enter':
-                            that.cancelCallback(that.inputElement.value);
-                            break;
-                        case '&&cancel':
-                            that.toggleLanguage();
-                            that.renderGrid();
-                            break;
-                        default:
-                            that.cursorPosition++;
-                            that.inputElement.value = that.inputElement.value.slice(0, that.cursorPosition) + value + that.inputElement.value.slice(that.cursorPosition);
-                            that.setCursorPosition(that.cursorPosition);
-                            break;
-                    }
-                    break;
-            }
-            evt.preventDefault();
-            return false;
-        };
+        // Binf keyup
+        this.inputElement.addEventListener("keyup", this.onKeyUp);
+        // Keep focus in it
+        this.inputElement.addEventListener("blur", this.onBlur);
+    },
+    unBindNavKeys: function() {
+        this.inputElement.removeEventListener("keyup", this.onKeyUp);
+        this.inputElement.removeEventListener("blur", this.onBlur);
     },
     // Extend helper
     extend: function(one, two) {
@@ -419,19 +440,57 @@ var smartTvKeyboard = {
     // Init keyboard
     init: function(config) {
         this.extend(this.config, config); // Config
-        this.keyboardElement = document.getElementById(this.config.id);
-        this.keyboardElement.className = "smart-tv-keyboard";
+        if (this.config.id) {
+            // Use element with id as keyboard element
+            this.keyboardElement = document.getElementById(this.config.id);
+        } else {
+            // Popup
+            this.popupElement = document.createElement("div");
+            this.popupElement.className = "modal fade in";
+            this.popupElement.style.display = "block";
+            // Body as keyboard element
+            this.keyboardElement = document.createElement("div");
+            this.keyboardElement.className = "modal-dialog";
+            // Attach to document body
+            this.popupElement.appendChild(this.keyboardElement);
+            document.body.appendChild(this.popupElement);
+            // Backprop
+            this.backdropElement = document.createElement("div");
+            this.backdropElement.className = "modal-backdrop fade in";
+            document.body.appendChild(this.backdropElement);
+        }
+        this.keyboardElement.className += " smart-tv-keyboard";
         this.setMode(this.mode); // Set curent mode (shift, unshift, etc)
         this.renderAll(); // Render
 
         // Bind nav keys
         this.bindNavKeys();
+    },
+    // Destroy keyboard
+    destroy: function() {
+        // unBind nav keys
+        this.unBindNavKeys();
+
+        // Remove elements
+        if (this.config.destroyOnExit) {
+            if (this.config.id) {
+                // Clear content of element
+                while (this.keyboardElement.hasChildNodes()) {
+                    this.keyboardElement.removeChild(this.keyboardElement.lastChild);
+                }
+            } else {
+                // Or Remove popup and backdrop
+                this.keyboardElement.parentNode.removeChild(this.keyboardElement);
+                this.popupElement.parentNode.removeChild(this.popupElement);
+                this.backdropElement.parentNode.removeChild(this.backdropElement);
+            }
+        }
     }
 };
 
 
 // Version.
-smartTvKeyboard.VERSION = '0.0.1';
+smartTvKeyboard.VERSION = '0.0.3';
 
 
 // Export to the root, which is probably `window`.

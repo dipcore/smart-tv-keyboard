@@ -58,7 +58,7 @@ smartTvKeyboard.addLanguage('rus',
                 '3': [
                     {text: 'abc', value: '&&switchMode', length: 'long', color: 'green'},
                     {text: 'я', value: 'я', length: 'normal', color: 'grey'},
-                    {text: 'x', value: 'ч', length: 'normal', color: 'grey'},
+                    {text: 'ч', value: 'ч', length: 'normal', color: 'grey'},
                     {text: 'с', value: 'с', length: 'normal', color: 'grey'},
                     {text: 'м', value: 'м', length: 'normal', color: 'grey'},
                     {text: 'и', value: 'и', length: 'normal', color: 'grey'},
@@ -72,7 +72,7 @@ smartTvKeyboard.addLanguage('rus',
                     {text: '>', value: '&&cursorMoveRight', length: 'normal', color: 'blue'}
                 ],
                 '4': [
-                    {text: 'Eng', value: '&&switchLanguage', length: 'long', color: 'green'},
+                    {text: 'Rus', value: '&&switchLanguage', length: 'long', color: 'green'},
                     {text: '', value: null, length: 'normal', color: 'disabled'},
                     {text: '', value: null, length: 'normal', color: 'disabled'},
                     {text: 'Space', value: ' ', length: 'x-long', color: 'grey'},
