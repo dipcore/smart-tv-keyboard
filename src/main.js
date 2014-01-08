@@ -242,10 +242,7 @@ var smartTvKeyboard = {
             var rowValue = that.languages[that.lang][that.mode][rowKey];
             // Create row
             var row = document.createElement("div");
-            row.className = "row";
-            var col = document.createElement("div");
-            col.className = "col-sm-12";
-            row.appendChild(col);
+            row.className = "key-row";
             // Generate buttons in row
             for (var key in rowValue) {
                 var value = rowValue[key];
@@ -258,7 +255,7 @@ var smartTvKeyboard = {
                     x++;
                 }
                 button.innerHTML = value.text || '&nbsp;'; // text or empty button
-                col.appendChild(button);
+                row.appendChild(button);
             }
             y++;
             x = 0;
@@ -369,6 +366,10 @@ var smartTvKeyboard = {
                 xy = that.getXY(that.x, that.y, 'RIGHT');
                 that.select(xy[0], xy[1]);
                 break;
+            case KEYS.EXIT:
+                that.cancelCallback(that.inputElement.value);
+                that.destroy();
+                break;
             case KEYS.ENTER:
                 var value = that.getButtonValue(that.x, that.y);
                 switch (value) {
@@ -419,12 +420,12 @@ var smartTvKeyboard = {
     },
     bindNavKeys: function() {
         // Binf keyup
-        this.inputElement.addEventListener("keyup", this.onKeyUp);
+        this.inputElement.addEventListener("keydown", this.onKeyUp);
         // Keep focus in it
         this.inputElement.addEventListener("blur", this.onBlur);
     },
     unBindNavKeys: function() {
-        this.inputElement.removeEventListener("keyup", this.onKeyUp);
+        this.inputElement.removeEventListener("keydown", this.onKeyUp);
         this.inputElement.removeEventListener("blur", this.onBlur);
     },
     // Extend helper
@@ -445,18 +446,13 @@ var smartTvKeyboard = {
             this.keyboardElement = document.getElementById(this.config.id);
         } else {
             // Popup
-            this.popupElement = document.createElement("div");
-            this.popupElement.className = "modal fade in";
-            this.popupElement.style.display = "block";
-            // Body as keyboard element
             this.keyboardElement = document.createElement("div");
-            this.keyboardElement.className = "modal-dialog";
+            this.keyboardElement.className = "smart-tv-keyboard-modal";
             // Attach to document body
-            this.popupElement.appendChild(this.keyboardElement);
-            document.body.appendChild(this.popupElement);
+            document.body.appendChild(this.keyboardElement);
             // Backprop
             this.backdropElement = document.createElement("div");
-            this.backdropElement.className = "modal-backdrop fade in";
+            this.backdropElement.className = "smart-tv-keyboard-modal-backdrop";
             document.body.appendChild(this.backdropElement);
         }
         this.keyboardElement.className += " smart-tv-keyboard";
@@ -481,7 +477,6 @@ var smartTvKeyboard = {
             } else {
                 // Or Remove popup and backdrop
                 this.keyboardElement.parentNode.removeChild(this.keyboardElement);
-                this.popupElement.parentNode.removeChild(this.popupElement);
                 this.backdropElement.parentNode.removeChild(this.backdropElement);
             }
         }

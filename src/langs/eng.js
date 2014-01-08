@@ -53,7 +53,7 @@ smartTvKeyboard.addLanguage('eng',
                     {text: ';', value: ';', length: 'normal', color: 'grey'},
                     {text: '\'', value: '\'', length: 'normal', color: 'grey'},
                     {text: '', value: null, length: 'normal', color: 'disabled'},
-                    {text: 'Enter', value: '&&enter', length: 'long', color: 'red'}
+                    {text: 'Enter', value: '&&enter', length: 'long', color: 'dark-blue'}
                 ],
                 '3': [
                     {text: 'abc', value: '&&switchMode', length: 'long', color: 'green'},
@@ -129,7 +129,7 @@ smartTvKeyboard.addLanguage('eng',
                     {text: ':', value: ':', length: 'normal', color: 'grey'},
                     {text: '"', value: '"', length: 'normal', color: 'grey'},
                     {text: '', value: null, length: 'normal', color: 'disabled'},
-                    {text: 'Enter', value: '&&enter', length: 'long', color: 'red'}
+                    {text: 'Enter', value: '&&enter', length: 'long', color: 'dark-blue'}
                 ],
                 '3': [
                     {text: 'ABC', value: '&&switchMode', length: 'long', color: 'green'},
@@ -205,7 +205,7 @@ smartTvKeyboard.addLanguage('eng',
                     {text: '§', value: '§', length: 'normal', color: 'grey'},
                     {text: '#', value: '#', length: 'normal', color: 'grey'},
                     {text: '', value: null, length: 'normal', color: 'disabled'},
-                    {text: 'Enter', value: '&&enter', length: 'long', color: 'red'}
+                    {text: 'Enter', value: '&&enter', length: 'long', color: 'dark-blue'}
                 ],
                 '3': [
                     {text: '123;)', value: '&&switchMode', length: 'long', color: 'green'},

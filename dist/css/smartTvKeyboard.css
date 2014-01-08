@@ -22,6 +22,9 @@ Date: 22-Dec-2013 12:56:19 PM
     font-size: 20px;
 }
 /* Buttons */
+.smart-tv-keyboard .key-row{
+
+}
 .smart-tv-keyboard .btn {
     margin: 1px;
     width: 34px;
@@ -29,6 +32,19 @@ Date: 22-Dec-2013 12:56:19 PM
     color: #DDD;
     font-weight: bold;
     border-color: #2B2B2B;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 0;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 .smart-tv-keyboard .btn.x-long {
     width: 213px;
@@ -56,8 +72,30 @@ Date: 22-Dec-2013 12:56:19 PM
 .smart-tv-keyboard .btn.blue{
     background: #606c88;
 }
-
-.smart-tv-keyboard .btn.green{
-    background: #627d4d;
+.smart-tv-keyboard .btn.dark-blue{
+    background: #3C7053
 }
-
+.smart-tv-keyboard .btn.green{
+    background: #3C7053
+}
+/* Modal */
+.smart-tv-keyboard-modal{
+    background: #000;
+    width: 550px;
+    height: 265px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -132px;
+    margin-left: -225px;
+    z-index: 1050;
+}
+.smart-tv-keyboard-modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+    background-color: rgba(0,0,0,0.75);
+}

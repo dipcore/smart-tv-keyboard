@@ -4,9 +4,7 @@ Virtual Keyboard for Smart TVs
 
 ## About
 
-A JavaScript library by Denys Petrovnin.
-
-See the [project homepage](http://dipcore@gmail.com.github.io/smartTvKeyboard).
+See the [project homepage](http://dipcore.github.io/smat-tv-keyboard/).
 
 ## Installation
 
@@ -14,29 +12,40 @@ Using Bower:
 
     bower install smartTvKeyboard
 
-Or grab the [source](https://github.com/dipcore@gmail.com/smartTvKeyboard/dist/smartTvKeyboard.js) ([minified](https://github.com/dipcore@gmail.com/smartTvKeyboard/dist/smartTvKeyboard.min.js)).
-
 ## Usage
 
 Basic usage is as follows:
 
-    smartTvKeyboard();
+    smartTvKeyboard.init();
 
 For advanced usage, see the documentation.
 
 ## Documentation
 
-Start with `docs/MAIN.md`.
+Configuration example:
 
-## Contributing
+    smartTvKeyboard.init({
+        id: 'elementId', // Insert keyboard in html element with id 'elementId' (uses innerHTML). If it's not set or null popup window will be used.
+        title: 'Search', // Title
+        input: 'text', // Input field type: text, password or textarea
+        navKeys: {}, // You can set custom keycodes for navigation keys
+        onEnter: function(value) {}, // Enter callback, value - entered text
+        onCancel: function(value) {} // Cancel callback, value - entered text
+    });
 
-We'll check out your contribution if you:
 
-* Provide a comprehensive suite of tests for your fork.
-* Have a clear and documented rationale for your changes.
-* Package these up in a pull request.
+Navigation keycodes example:
 
-We'll do our best to help you out with any contribution issues you may have.
+    navKeys: {
+        LEFT: Common.KEY.KEY_LEFT, 
+        UP: Common.KEY.KEY_UP,
+        RIGHT: Common.KEY.KEY_RIGHT,
+        DOWN: Common.KEY.KEY_DOWN,
+        ENTER: Common.KEY.KEY_ENTER,
+        EXIT: Common.KEY.KEY_RETURN
+    }
+
+See [demo page](http://dipcore.github.io/smat-tv-keyboard/) for more examples
 
 ## License
 
