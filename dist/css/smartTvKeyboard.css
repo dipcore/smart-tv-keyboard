@@ -4,7 +4,7 @@ Denys Petrovnin <dipcore@gmail.com>
 Date: 22-Dec-2013 12:56:19 PM
 */
 .smart-tv-keyboard {
-    width: 550px !important;
+    width: 540px !important;
     background-color: black;
     padding: 5px;
     border-radius: 5px;
@@ -17,9 +17,24 @@ Date: 22-Dec-2013 12:56:19 PM
 }
 /* Input Box */
 .smart-tv-keyboard .input-box {
+    box-sizing: border-box;
     margin-bottom: 5px;
     background-color: #EEE;
+    background-image: none;
     font-size: 20px;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    color: #555;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.smart-tv-keyboard .input-box:focus {
+    outline: 0;
 }
 /* Buttons */
 .smart-tv-keyboard .key-row{
@@ -81,8 +96,6 @@ Date: 22-Dec-2013 12:56:19 PM
 /* Modal */
 .smart-tv-keyboard-modal{
     background: #000;
-    width: 550px;
-    height: 265px;
     position: fixed;
     top: 50%;
     left: 50%;
