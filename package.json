@@ -1,6 +1,6 @@
 {
   "name": "smartTvKeyboard",
-  "version": "0.0.7",
+  "version": "0.0.6",
   "main": "dist/smartTvKeyboard.min.js",
   "description": "Virtual Keyboard for Smart TVs",
   "repository": {
