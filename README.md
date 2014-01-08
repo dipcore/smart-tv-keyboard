@@ -4,7 +4,7 @@ Virtual Keyboard for Smart TVs
 
 ## About
 
-See the [project homepage](http://dipcore.github.io/smat-tv-keyboard/).
+See the [project homepage](http://dipcore.github.io/smart-tv-keyboard/).
 
 ## Installation
 
@@ -45,7 +45,7 @@ Navigation keycodes example:
         EXIT: Common.KEY.KEY_RETURN
     }
 
-See [demo page](http://dipcore.github.io/smat-tv-keyboard/) for more examples
+See [demo page](http://dipcore.github.io/smart-tv-keyboard/) for more examples
 
 ## License
 
