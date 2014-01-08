@@ -1,11 +1,11 @@
 {
   "name": "smartTvKeyboard",
-  "version": "0.0.0",
+  "version": "0.0.7",
   "main": "dist/smartTvKeyboard.min.js",
   "description": "Virtual Keyboard for Smart TVs",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dipcore@gmail.com/smartTvKeyboard.git"
+    "url": "git://github.com/dipcore/smart-tv-keyboard.git"
   },
   "keywords": [],
   "author": "Denys Petrovnin",
