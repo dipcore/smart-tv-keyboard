@@ -1,0 +1,114 @@
+/*
+smart-tv-keyboard styles
+Denys Petrovnin <dipcore@gmail.com>
+Date: 22-Dec-2013 12:56:19 PM
+*/
+.smart-tv-keyboard {
+    width: 540px !important;
+    background-color: black;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+/* Title */
+.smart-tv-keyboard .title {
+    color: #CCC;
+    margin: 5px;
+}
+/* Input Box */
+.smart-tv-keyboard .input-box {
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    background-color: #EEE;
+    background-image: none;
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    color: #555;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.smart-tv-keyboard .input-box:focus {
+    outline: 0;
+}
+/* Buttons */
+.smart-tv-keyboard .key-row{
+
+}
+.smart-tv-keyboard .btn {
+    margin: 1px;
+    width: 34px;
+    height: 34px;
+    color: #DDD;
+    font-weight: bold;
+    border-color: #2B2B2B;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 0;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+.smart-tv-keyboard .btn.x-long {
+    width: 213px;
+}
+.smart-tv-keyboard .btn.long {
+    width: 70px;
+}
+.smart-tv-keyboard .btn.normal {
+    width: 34px;
+}
+.smart-tv-keyboard .btn.disabled {
+    background: #333;
+    border-color: #444;
+}
+.smart-tv-keyboard .btn.selected {
+    background: #a7cfdf !important;
+    color: #444 !important;
+}
+.smart-tv-keyboard .btn.grey{
+    background: #7d7e7d;
+}
+.smart-tv-keyboard .btn.red{
+    background: #910323;
+}
+.smart-tv-keyboard .btn.blue{
+    background: #606c88;
+}
+.smart-tv-keyboard .btn.dark-blue{
+    background: #3C7053
+}
+.smart-tv-keyboard .btn.green{
+    background: #3C7053
+}
+/* Modal */
+.smart-tv-keyboard-modal{
+    background: #000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -132px;
+    margin-left: -225px;
+    z-index: 1050;
+}
+.smart-tv-keyboard-modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+    background-color: rgba(0,0,0,0.75);
+}
