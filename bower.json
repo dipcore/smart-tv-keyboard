@@ -1,6 +1,6 @@
 {
   "name": "smartTvKeyboard",
-  "version": "0.0.9",
+  "version": "1.0.0b",
   "main": "dist/smartTvKeyboard.min.js",
   "ignore": [
     "**/.*",    
