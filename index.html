@@ -12,7 +12,7 @@
 
 
 	<!-- Smart TV Keyboard Styles -->
-	<link rel="stylesheet" type="text/css" media="screen" href="assets/smartTvKeyboard/dist/css/smart-tv-keyboard-dark.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" id="keyboard-theme" href="assets/smartTvKeyboard/dist/css/smart-tv-keyboard-dark.min.css">
 	<!-- Smart TV Keyboard Scripts -->
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -55,17 +55,12 @@
 
 			<p>Smart TV Keyboard is a simple virtual keyboard for smart TVs. Optimized for using with TV remote control. Current version requires JQuery or Zepto. The latest version without extenal dependencies is <strong>v0.0.7</strong></p>
 
-			<h3>Inline Example</h3>
+			<h3>Themes</h3>
 
-			<div class="margin-bottom-5">
-				Your name <input type="text" class="keyboard" placeholder="Enter your name">
-			</div>
-			<h4>Code</h4>			
-<pre><code class="js">$('.keyboard').smartTvKeyboard({
-	layouts: smartTvKeyboardLayouts
-});	</code></pre>
-			
-			<hr />
+			<p>Currently only light and dark themes available. Click to swith between themes in this demo: <a class="switch-theme" href="javascript:;" data-theme="smart-tv-keyboard-light.min.css">LIGHT</a> | 
+			<a class="switch-theme" href="javascript:;" data-theme="smart-tv-keyboard-dark.min.css">DARK</a></p>
+
+			<p>Selected theme is <span id="theme">smart-tv-keyboard-dark.min.css</span></p>
 
 			<h3>Modal Window Examples</h3>
 
@@ -170,6 +165,18 @@
 });</code></pre>
 			<hr />
 
+			<h3>Inline Example</h3>
+
+			<div class="margin-bottom-5">
+				Your name <input type="text" class="keyboard" placeholder="Enter your name">
+			</div>
+			<h4>Code</h4>			
+<pre><code class="js">$('.keyboard').smartTvKeyboard({
+	layouts: smartTvKeyboardLayouts
+});	</code></pre>
+			
+			<hr />
+
 			<h3>Layouts</h3>
 
 			<p>You can use your own layouts. Examples of layout martix can be found in "layouts" directory.</p>
@@ -253,6 +260,12 @@
 			    type: 'modal', // Modal
 			    layouts: {en: smartTvKeyboardLayouts.enBoxed},
 			    useNavKeys: false
+			});
+
+			$('.switch-theme').on('click', function(){
+				var theme = $(this).attr('data-theme');
+				$('#keyboard-theme').attr('href', 'assets/smartTvKeyboard/dist/css/' + theme);
+				$('#theme').text(theme);
 			});
 		});
 	</script>
