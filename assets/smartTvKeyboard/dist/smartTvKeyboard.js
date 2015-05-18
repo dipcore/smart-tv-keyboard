@@ -358,6 +358,6 @@
 
 		});
 
-	}
+	};
 
 }(window.jQuery || window.Zepto));
