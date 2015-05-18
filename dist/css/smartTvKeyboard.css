@@ -35,9 +35,10 @@ Date: 16-May-2015 15:24:20
     padding: 6px 12px;
     color: #555;
     vertical-align: middle;
-    border: 1px solid #ccc;
+    border: none;
     -webkit-box-shadow: none;
     box-shadow: none;
+    border-radius: 0;
 }
 .smart-tv-keyboard .smart-tv-keyboard-input:focus {
     outline: 0;
