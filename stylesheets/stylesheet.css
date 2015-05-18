@@ -158,34 +158,8 @@ p img {
 }
 
 pre, code {
-    width: 100%;
-    color: #222;
-    background-color: #fff;
-
     font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     font-size: 14px;
-
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-}
-
-pre {
-    width: 100%;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
-    overflow: auto;
-}
-
-code {
-    padding: 3px;
-    margin: 0 3px;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
-}
-
-pre code {
-    display: block;
-    box-shadow: none;
 }
 
 blockquote {
@@ -366,7 +340,7 @@ Full-Width Styles
     background: #212121;
 }
 
-#sampleInput {
+textarea, input {
     border: 1px solid #ccc;
     border-radius: 4px;
     height: 34px;
@@ -376,6 +350,10 @@ Full-Width Styles
     display: block;
     width: 100%;
     margin-bottom: 10px;
+}
+
+textarea {
+	height: 100px;
 }
 
 

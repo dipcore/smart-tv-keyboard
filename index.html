@@ -1,135 +1,209 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset='utf-8' />
-        <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-        <meta name="description" content="Smat-tv-keyboard : Virtual Keyboard for Smat TVs" />
+<head>
+	<meta charset='utf-8' />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta name="description" content="Smat-tv-keyboard : Virtual Keyboard for Smat TVs" />
 
-        <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-
-        <!-- Smart TV Keyboard Styles -->
-        <link rel="stylesheet" type="text/css" media="screen" href="smartTvKeyboard/dist/css/smartTvKeyboard.css">
-        <!-- Smart TV Keyboard Scripts -->
-        <script type="text/javascript" src="smartTvKeyboard/dist/smartTvKeyboard.js"></script>
-        <script type="text/javascript" src="smartTvKeyboard/dist/langs/eng.js"></script>
-        <script type="text/javascript" src="smartTvKeyboard/dist/langs/rus.js"></script>
-
-        <title>smart-tv-keyboard</title>
-    </head>
-
-    <body>
-
-        <!-- HEADER -->
-        <div id="header_wrap" class="outer">
-            <header class="inner">
-                <a id="forkme_banner" href="https://github.com/dipcore/smart-tv-keyboard">View on GitHub</a>
-
-                <h1 id="project_title">Smart-tv-keyboard</h1>
-                <h2 id="project_tagline">Virtual Keyboard for Smart TVs</h2>
-
-                <section id="downloads">
-                    <a class="zip_download_link" href="https://github.com/dipcore/smart-tv-keyboard/zipball/master">Download this project as a .zip file</a>
-                    <a class="tar_download_link" href="https://github.com/dipcore/smart-tv-keyboard/tarball/master">Download this project as a tar.gz file</a>
-                </section>
-            </header>
-        </div>
-
-        <!-- MAIN CONTENT -->
-        <div id="main_content_wrap" class="outer">
-            <section id="main_content" class="inner">
-                <h3>Smart TV Keyboard :: Demo Page</h3>
-
-                <p>Smart TV Keyboard is a simple virtual keyboard for smart TVs. It has no external dependencies. Optimized for using with TV remote control.</p>
-
-
-                <h3>In-page Example</h3>
-
-                <input id="sampleInput" type="text" placeholder="Click to see keyboard">
-                <div id="keyboard"></div>
-
-                <script>
-                    var input = document.getElementById('sampleInput');
-                    input.addEventListener("focus", function() {
-                        var oldValue = input.value;
-                        input.style.display = 'none';
-
-                        // Show keyboard
-                        smartTvKeyboard.init({
-                            id: 'keyboard',
-                            value: oldValue,
-                            onEnter: function(value) {
-                                input.style.display = 'block';
-                                input.value = value;
-                            },
-                            onCancel: function(value) {
-                                input.style.display = 'block';
-                                input.value = oldValue;
-                            }
-                        });
-                    });
-                </script>
-
-                <p><em>Hint: Use arrow keys to navigate. Press Enter to enter selected value. Press Backspace to close window.</em></p>
-
-
-                <h3>Modal Window Example</h3>
-
-                <button id="showPopupButton">Show Keyboard</button>
-                <p id="enteredValue" style="display: none;"></p>    
-                <p><em>Hint: Use arrow keys to navigate. Press Enter to enter selected value. Press Backspace to close window.</em></p>
-
-
-                <script>
-                    var button = document.getElementById('showPopupButton');
-                    var enteredValueElement = document.getElementById('enteredValue');
-                    button.addEventListener("click", function() {
-                        smartTvKeyboard.init({
-                            title: 'Modal Window Title',
-                            onEnter: function(value) {
-                                if (value) {
-                                    enteredValueElement.innerHTML = 'Entered value: <strong>' + value + '</strong>';
-                                    enteredValueElement.style.display = 'block';
-                                }
-                            }
-                        });
-                    });
-                </script>
+	<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="assets/highlight/styles/zenburn.css">
 
 
 
-                <h3>Languages</h3>
+	<!-- Smart TV Keyboard Styles -->
+	<link rel="stylesheet" type="text/css" media="screen" href="assets/smartTvKeyboard/dist/css/smartTvKeyboard.min.css">
+	<!-- Smart TV Keyboard Scripts -->
 
-                <p>You can use your own layouts. Examples of layouts can be found in "lang" directory.</p>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="assets/highlight/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
 
-                <h3>Contacts</h3>
+	<!-- Smart TV Keyboard lib and layouts -->
+	<script type="text/javascript" src="assets/smartTvKeyboard/dist/layouts/en.js"></script>
+	<script type="text/javascript" src="assets/smartTvKeyboard/dist/layouts/ru.js"></script>
 
-                <p> Email: <a href="mailto:dipcore@gmail.com">dipcore@gmail.com</a> Jabber: dipcore@dipcore.ca</p>
+	<script type="text/javascript" src="assets/smartTvKeyboard/dist/smartTvKeyboard.min.js"></script>
+	<!-- Smart TV Keyboard lib and layouts -->
 
-            </section>
-        </div>
+	<title>smart-tv-keyboard</title>
+</head>
 
-        <!-- FOOTER  -->
-        <div id="footer_wrap" class="outer">
-            <footer class="inner">
-                <p class="copyright">Smat-tv-keyboard maintained by <a href="https://github.com/dipcore">dipcore</a></p>
-                <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-            </footer>
-        </div>
+<body>
 
-        <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
-            try {
-                var pageTracker = _gat._getTracker("UA-46690537-1");
-                pageTracker._trackPageview();
-            } catch (err) {
-            }
-        </script>
+	<!-- HEADER -->
+	<div id="header_wrap" class="outer">
+		<header class="inner">
+			<a id="forkme_banner" href="https://github.com/dipcore/smart-tv-keyboard">View on GitHub</a>
+
+			<h1 id="project_title">Smart-tv-keyboard</h1>
+			<h2 id="project_tagline">Virtual Keyboard for Smart TVs</h2>
+
+			<section id="downloads">
+				<a class="zip_download_link" href="https://github.com/dipcore/smart-tv-keyboard/zipball/master">Download this project as a .zip file</a>
+				<a class="tar_download_link" href="https://github.com/dipcore/smart-tv-keyboard/tarball/master">Download this project as a tar.gz file</a>
+			</section>
+		</header>
+	</div>
+
+	<!-- MAIN CONTENT -->
+	<div id="main_content_wrap" class="outer">
+		<section id="main_content" class="inner">
+			<h3>Smart TV Keyboard :: Demo Page</h3>
+
+			<p>Smart TV Keyboard is a simple virtual keyboard for smart TVs. Optimized for using with TV remote control. Current version requires JQuery or Zepto. The latest version without extenal dependencies is <strong>v0.0.7</strong></p>
 
 
-    </body>
+			<h3>Inline Examples</h3>
+
+			<div>
+				<input id="sampleInput" type="text" class="keyboard" placeholder="Enter your name"><br>
+			</div>
+			<div>
+				<input type="password" class="keyboard" placeholder="Enter your passowrd"> <br>
+			</div>
+			<div>
+				<textarea class="keyboard" placeholder="Enter text"></textarea>
+			</div>
+			<h4>Code</h4>			
+<pre><code class="js">$('.keyboard').smartTvKeyboard({
+	layouts: smartTvKeyboardLayouts
+});	</code></pre>
+			<hr />
+
+			<h3>Modal Window Examples</h3>
+
+			<h4>Without a title</h4>
+			<input type="text" id="keyboard-modal" placeholder="Enter your name">
+			<h4>Code</h4>			
+<pre><code class="js">$('#keyboard-modal').smartTvKeyboard({
+    type: 'modal', // Modal
+    useNavKeys: false, // Disable custom nav keys (remote)
+    layouts: smartTvKeyboardLayouts // Will enable all loaded layouts
+});</code></pre>
+			<hr />
+			
+
+			<h4>With a title</h4>
+			<input type="text" id="keyboard-modal-title" placeholder="Enter your name">
+			<h4>Code</h4>
+			<pre><code class="js">$('#keyboard-modal-title').smartTvKeyboard({
+    title: 'Modal title', // Window title
+    type: 'modal', // Modal
+    useNavKeys: false, // Disable custom nav keys (remote)
+    layouts: smartTvKeyboardLayouts // Will enable all loaded layouts
+});</code></pre>
+			<hr />			
+
+			<h4>Single layout (en)</h4>
+			<input type="text" id="keyboard-modal-en" placeholder="Enter your name"></br>
+			<h4>Code</h4>
+			<pre><code class="js">$('#keyboard-modal-en').smartTvKeyboard({
+    title: 'English layout only',  // Window title
+    type: 'modal', // Modal
+    layouts: {en: smartTvKeyboardLayouts.en}, // Put here all layouts you want to use
+    useNavKeys: false
+});</code></pre>
+			<hr />
+
+			<h4>Custom nav keys</h4>
+			<input type="text" id="keyboard-modal-nav" placeholder="Enter your name"></br>
+			<h4>Code</h4>
+			<p>In this demo useDirectEdit option is disabled. In real cases a remote control and a physical keyboard generate different keycodes, 
+			so you can have useNavKeys and useDirectEdit enabled.</p>
+			<p><em>Hint: Use arrow keys on your physical keyboard to navigate. Press Enter to enter selected value, Esc to close window.</em></p>
+
+			<pre><code class="js">$('#keyboard-modal-nav').smartTvKeyboard({
+	title: 'Use navigation keys to enter text',  // Window title
+	type: 'modal', // Modal
+	layouts: {en: smartTvKeyboardLayouts.en}, // Put here all layouts you want to use
+	useNavKeys: true, // Enable custom nav keys
+	useDirectEdit: false, // Disable direct editing
+	navKeys: { // Nav keycodes
+		LEFT: 37, 
+		UP: 38,
+		RIGHT: 39,
+		DOWN: 40,
+		ENTER: 13, // Enter
+		EXIT: 27 // ESC
+	}
+});</code></pre>
+			<hr />
+
+
+
+			<h3>Layouts</h3>
+
+			<p>You can use your own layouts. Examples of layouts can be found in "layouts" directory.</p>
+
+			<h3>Contacts</h3>
+
+			<p> Email: <a href="mailto:dipcore@gmail.com">dipcore@gmail.com</a> Jabber: dipcore@dipcore.ca</p>
+
+		</section>
+	</div>
+
+	<!-- FOOTER  -->
+	<div id="footer_wrap" class="outer">
+		<footer class="inner">
+			<p class="copyright">Smat-tv-keyboard maintained by <a href="https://github.com/dipcore">dipcore</a></p>
+			<p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+		</footer>
+	</div>
+
+	<script>
+		$('document').ready(function(){
+			$('.keyboard').smartTvKeyboard({
+				layouts: smartTvKeyboardLayouts
+			});			
+			$('#keyboard-modal').smartTvKeyboard({
+				type: 'modal',
+				useNavKeys: false,
+				layouts: smartTvKeyboardLayouts
+			});			
+			$('#keyboard-modal-title').smartTvKeyboard({
+				title: 'Modal title',
+				type: 'modal',
+				useNavKeys: false,
+				layouts: smartTvKeyboardLayouts
+			});			
+			$('#keyboard-modal-en').smartTvKeyboard({
+				title: 'English layout only',
+				type: 'modal',
+				layouts: {en: smartTvKeyboardLayouts.en},
+				useNavKeys: false
+			});
+			$('#keyboard-modal-nav').smartTvKeyboard({
+				title: 'Use navigation keys to enter text',
+				type: 'modal',
+				layouts: {en: smartTvKeyboardLayouts.en},
+				useNavKeys: true,
+				useDirectEdit: false,
+				navKeys: { 
+					LEFT: 37, 
+					UP: 38,
+					RIGHT: 39,
+					DOWN: 40,
+					ENTER: 13, // Enter
+					EXIT: 27 // ESC
+				}
+			});
+		});
+	</script>
+
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+
+	<script type="text/javascript">
+		try {
+			var pageTracker = _gat._getTracker("UA-46690537-1");
+			pageTracker._trackPageview();
+		} catch (err) {
+		}
+	</script>
+
+
+</body>
 </html>
