@@ -46,16 +46,21 @@ module.exports = function(grunt) {
     copy: {
 	main: {
 	    files: [
-        	{src: ['src/css/main.css'], dest: 'dist/css/smartTvKeyboard.css'},
+        	{src: ['src/css/light.css'], dest: 'dist/css/smart-tv-keyboard-light.css'},
+        	{src: ['src/css/dark.css'], dest: 'dist/css/smart-tv-keyboard-dark.css'},
         	{expand: true, cwd: 'src/', src: ['layouts/**'], dest: 'dist/'}
 	    ]
 	}
     },
 
     cssmin: {
-       main: {
-         src:['dist/css/smartTvKeyboard.css'],
-         dest:'dist/css/smartTvKeyboard.min.css'
+       light: {
+         src:['dist/css/smart-tv-keyboard.css'],
+         dest:'dist/css/smart-tv-keyboard.min.css'
+       },
+       dark: {
+         src:['dist/css/smart-tv-keyboard.css'],
+         dest:'dist/css/smart-tv-keyboard.min.css'
        }
     },
 
