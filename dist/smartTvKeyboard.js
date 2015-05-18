@@ -87,13 +87,13 @@
 
 					if (options.type === 'inline') {
 						that.hide();
+						that.after(keyboardElement);
 					} else {
 						backdropElement = $(backdropTemplate);
+						parentElement.append(keyboardElement);
 						parentElement.append(backdropElement);
 						keyboardElement.toggleClass('smart-tv-keyboard-modal', true);
 					}
-
-					parentElement.append(keyboardElement);
 
 					renderGrid();
 

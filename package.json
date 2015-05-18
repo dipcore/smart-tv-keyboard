@@ -15,6 +15,7 @@
   "devDependencies": {
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-jshint": "latest",
+    "grunt-contrib-cssmin": "latest",
     "grunt-contrib-uglify": "~0.2.4",
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.5.3",
