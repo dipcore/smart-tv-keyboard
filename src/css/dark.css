@@ -1,0 +1,166 @@
+/*
+smart-tv-keyboard dark style
+Denys Petrovnin <dipcore@gmail.com>
+Date: 16-May-2015 15:24:20
+*/
+.smart-tv-keyboard {
+    background-color: black;
+    padding: 5px;
+    margin: 0 auto;
+    font-family: Arial;
+    display: inline-block;
+}
+
+.smart-tv-keyboard .smart-tv-keyboard-title {
+	text-align: center;
+	color: #ccc;
+	padding: 5px;
+}
+
+/*
+ * Input section
+ */
+
+.smart-tv-keyboard .smart-tv-keyboard-input-section {
+	margin-bottom: 5px;
+}
+.smart-tv-keyboard .smart-tv-keyboard-input {
+	box-sizing: border-box;
+    background-color: #EEE;
+    background-image: none;
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    color: #555;
+    vertical-align: middle;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+}
+.smart-tv-keyboard .smart-tv-keyboard-input:focus {
+    outline: 0;
+}
+.smart-tv-keyboard .smart-tv-keyboard-input.textarea {
+	height: 4em;
+}
+
+/*
+ * Grid section
+ */
+
+.smart-tv-keyboard .smart-tv-keyboard-grid {
+
+}
+
+/*
+ * Buttons
+ */
+.smart-tv-keyboard .smart-tv-keyboard-button {
+    margin: 1px;
+    height: 34px;
+    line-height: 34px;
+    color: #DDD;
+    border-color: #2B2B2B;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+/* n*width+(n-1)*2 */
+.smart-tv-keyboard .smart-tv-keyboard-button-length-6 {
+    width: 250px;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-length-5 {
+    width: 208px;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-length-4 {
+    width: 166px;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-length-3 {
+    width: 124px;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-length-2 {
+    width: 82px;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-length-1 {
+    width: 40px;
+}
+
+.smart-tv-keyboard .smart-tv-keyboard-button-color-disabled {
+    background: #333;
+    border-color: #444;
+}
+/* letters */
+.smart-tv-keyboard .smart-tv-keyboard-button-color-letter {
+    background: #7d7e7d;
+    border-color: #8E8E8E;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-color-symbol {
+    background: #606c88;
+    border-color: #6E778C;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-color-number {
+	background: #3C5E70;
+	border-color: #4F6D7C;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-color-toggle {
+    background: #3C7053;
+      border-color: #45805F;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-color-danger {
+	background: #910323;
+	border-color: #960324;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-color-success {
+	background: #606c88;
+	border-color: #6E778C;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-color-warning {
+	background: #9D8F00;
+	border-color: #B0A104;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-color-navigation {
+	background: #606c88;
+	border-color: #6E778C;
+}
+
+.smart-tv-keyboard .smart-tv-keyboard-button-selected {
+    background: #a7cfdf !important;
+    color: #444 !important;
+    border-color: #91A6AE !important;
+}
+
+
+/* Modal */
+.smart-tv-keyboard-modal{
+    background: #000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -132px;
+    margin-left: -225px;
+    z-index: 1050;
+}
+.smart-tv-keyboard-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+    background-color: rgba(0,0,0,0.75);
+}
