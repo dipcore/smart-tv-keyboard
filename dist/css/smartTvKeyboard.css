@@ -1,24 +1,31 @@
 /*
 smart-tv-keyboard styles
 Denys Petrovnin <dipcore@gmail.com>
-Date: 22-Dec-2013 12:56:19 PM
+Date: 16-May-2015 15:24:20
 */
 .smart-tv-keyboard {
-    width: 540px !important;
+    width: 540px;
     background-color: black;
     padding: 5px;
-    border-radius: 5px;
     margin: 0 auto;
+    font-family: Arial;
 }
-/* Title */
-.smart-tv-keyboard .title {
-    color: #CCC;
-    margin: 5px;
+
+.smart-tv-keyboard .smart-tv-keyboard-title {
+	text-align: center;
+	color: #ccc;
+	padding: 5px;
 }
-/* Input Box */
-.smart-tv-keyboard .input-box {
-    box-sizing: border-box;
-    margin-bottom: 5px;
+
+/*
+ * Input section
+ */
+
+.smart-tv-keyboard .smart-tv-keyboard-input-section {
+	margin-bottom: 5px;
+}
+.smart-tv-keyboard .smart-tv-keyboard-input {
+	box-sizing: border-box;
     background-color: #EEE;
     background-image: none;
     font-size: 20px;
@@ -29,23 +36,29 @@ Date: 22-Dec-2013 12:56:19 PM
     color: #555;
     vertical-align: middle;
     border: 1px solid #ccc;
-    border-radius: 4px;
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-.smart-tv-keyboard .input-box:focus {
+.smart-tv-keyboard .smart-tv-keyboard-input:focus {
     outline: 0;
 }
-/* Buttons */
-.smart-tv-keyboard .key-row{
+
+/*
+ * Grid section
+ */
+
+.smart-tv-keyboard .smart-tv-keyboard-grid {
 
 }
-.smart-tv-keyboard .btn {
+
+/*
+ * Buttons
+ */
+.smart-tv-keyboard .smart-tv-keyboard-button {
     margin: 1px;
-    width: 34px;
     height: 34px;
+    line-height: 34px;
     color: #DDD;
-    font-weight: bold;
     border-color: #2B2B2B;
     display: inline-block;
     text-align: center;
@@ -54,45 +67,66 @@ Date: 22-Dec-2013 12:56:19 PM
     border: 1px solid transparent;
     white-space: nowrap;
     padding: 0;
-    border-radius: 4px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
+    box-sizing: border-box;
 }
-.smart-tv-keyboard .btn.x-long {
-    width: 213px;
+
+/* n*34+(n-1)*2 */
+.smart-tv-keyboard .smart-tv-keyboard-button-length-6 {
+    width: 214px;
 }
-.smart-tv-keyboard .btn.long {
+.smart-tv-keyboard .smart-tv-keyboard-button-length-5 {
+    width: 178px;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-length-4 {
+    width: 142px;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-length-3 {
+    width: 106px;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-length-2 {
     width: 70px;
 }
-.smart-tv-keyboard .btn.normal {
+.smart-tv-keyboard .smart-tv-keyboard-button-length-1 {
     width: 34px;
 }
-.smart-tv-keyboard .btn.disabled {
+
+.smart-tv-keyboard .smart-tv-keyboard-button-color-disabled {
     background: #333;
     border-color: #444;
 }
-.smart-tv-keyboard .btn.selected {
+.smart-tv-keyboard .smart-tv-keyboard-button-color-grey{
+    background: #7d7e7d;
+    border-color: #8E8E8E;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-color-red{
+	background: #910323;
+	border-color: #960324;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-color-blue{
+    background: #606c88;
+    border-color: #6E778C;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-color-dark-blue{
+	background: #3C5E70;
+	border-color: #4F6D7C;
+}
+.smart-tv-keyboard .smart-tv-keyboard-button-color-green{
+    background: #3C7053;
+      border-color: #45805F;
+}
+
+.smart-tv-keyboard .smart-tv-keyboard-button-selected {
     background: #a7cfdf !important;
     color: #444 !important;
+    border-color: #91A6AE !important;
 }
-.smart-tv-keyboard .btn.grey{
-    background: #7d7e7d;
-}
-.smart-tv-keyboard .btn.red{
-    background: #910323;
-}
-.smart-tv-keyboard .btn.blue{
-    background: #606c88;
-}
-.smart-tv-keyboard .btn.dark-blue{
-    background: #3C7053
-}
-.smart-tv-keyboard .btn.green{
-    background: #3C7053
-}
+
+
 /* Modal */
 .smart-tv-keyboard-modal{
     background: #000;
@@ -103,7 +137,7 @@ Date: 22-Dec-2013 12:56:19 PM
     margin-left: -225px;
     z-index: 1050;
 }
-.smart-tv-keyboard-modal-backdrop {
+.smart-tv-keyboard-backdrop {
     position: fixed;
     top: 0;
     right: 0;

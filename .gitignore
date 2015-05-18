@@ -6,6 +6,9 @@ tmp/
 logs/
 log/
 results/
+test/
+
+test.html
 
 *.seed
 *.log
